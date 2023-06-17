@@ -9,9 +9,11 @@
 			<!-- Start slider -->
 			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+					@{int i = 0;}
+					@foreach (var homeSliderInfo in Model.HomeSlider.HomeSliderInfos)
+					{
+						<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@{i++;}" class="@(Model.HomeSlider.HomeSliderInfos.ElementAt(0) == homeSliderInfo ? "active" : "")"></li>
+					}
 				</ol>
 				<div class="carousel-inner">
 					@foreach (var homeSliderInfo in Model.HomeSlider.HomeSliderInfos)
